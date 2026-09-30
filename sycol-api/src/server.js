@@ -13,6 +13,7 @@ import { contactRouter } from './routes/contact.js';
 import { authRouter } from './routes/auth.js';
 import { ordersRouter } from './routes/orders.js';
 import { loyaltyCardsRouter } from './routes/loyaltyCards.js';
+import { adminRouter } from './routes/admin.js';
 
 // Peuple la base au premier démarrage (ne fait rien si des données existent déjà)
 seedDatabase();
@@ -58,6 +59,7 @@ app.use('/api/contact', contactRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/orders', ordersRouter);
 app.use('/api/loyalty-cards', loyaltyCardsRouter);
+app.use('/api/admin', adminRouter);
 
 app.use((req, res) => {
   res.status(404).json({ error: 'Route introuvable.' });

@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-bg text-navy font-body; }
+  h1, h2, h3, h4 { @apply font-display font-bold tracking-tight text-navy; }
+  ::selection { @apply bg-purple/20; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-mono text-[.72rem] tracking-[.14em] uppercase text-purple font-medium inline-flex items-center gap-2;
+  }
+  .eyebrow::before { content: ''; @apply w-[22px] h-[2px] bg-full-grad rounded-full; }
+
+  .btn { @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm transition-transform duration-300; }
+  .btn-primary { @apply btn bg-full-grad text-white shadow-[0_14px_30px_-10px_rgba(232,67,44,.45)] hover:-translate-y-1; }
+  .btn-ghost { @apply btn bg-white text-navy border border-line hover:border-purple hover:text-purple hover:-translate-y-1; }
+  .btn-light { @apply btn bg-white/10 text-white border border-white/30 backdrop-blur hover:bg-white/20 hover:-translate-y-1; }
+  .btn-outline-light { @apply btn bg-transparent text-white border border-white/30 hover:border-cyan hover:text-cyan hover:-translate-y-1; }
+  .btn-sm { @apply px-5 py-2.5 text-[.85rem]; }
+
+  .section-head { @apply text-center max-w-xl mx-auto mb-14; }
+  .section-head h2 { @apply text-[clamp(1.8rem,3.4vw,2.5rem)] mt-3; }
+  .section-head p { @apply text-muted mt-3 text-[1.02rem]; }
+
+  .card { @apply bg-white rounded-xl2 border border-line transition-all duration-300; }
+
+  .input-field { @apply px-4 py-3 rounded-xl border border-line focus:border-purple outline-none text-[.92rem]; }
+}
